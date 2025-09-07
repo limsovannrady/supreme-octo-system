@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: telegram-youtube-bot
+    env: python
+    buildCommand: "pip install --upgrade pip && pip install -r requirements.txt"
+    startCommand: "python main.py"
+    healthCheckPath: "/health"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+    autoDeploy: false
